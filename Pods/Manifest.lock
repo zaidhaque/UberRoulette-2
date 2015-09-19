@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.6.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Alamofire (2.0.1)
   - HNKGooglePlacesAutocomplete (1.1.0):
     - HNKGooglePlacesAutocomplete/Models (= 1.1.0)
     - HNKServerFacade (~> 0.3)
@@ -38,10 +39,12 @@ PODS:
   - Mantle/extobjc (2.0.5)
 
 DEPENDENCIES:
+  - Alamofire (~> 2.0)
   - HNKGooglePlacesAutocomplete (~> 1.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
+  Alamofire: 1d8e208d616fbbfd2391b15eae766d07c96cdc49
   HNKGooglePlacesAutocomplete: 0022f666d245c18fb8cd860e79712526d6f88267
   HNKServerFacade: 0fa3839353480b8862563a34903ad1406a38b4c9
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
