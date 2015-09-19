@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        HNKGooglePlacesAutocompleteQuery.setupSharedQueryWithAPIKey("AIzaSyCisvBwMQ4eabAbXRPgdE_XBTpfj28qTjg")
         return true
     }
 
