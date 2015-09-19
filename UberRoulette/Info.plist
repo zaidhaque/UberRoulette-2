@@ -49,5 +49,14 @@
 			</dict>
 		</dict>
 	</dict>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>edu.cornell.tech.UberRoulette</string>
+            </array>
+        </dict>
+    </array>
 </dict>
 </plist>

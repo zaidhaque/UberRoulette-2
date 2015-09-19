@@ -37,10 +37,14 @@ PODS:
   - Mantle (2.0.5):
     - Mantle/extobjc (= 2.0.5)
   - Mantle/extobjc (2.0.5)
+  - p2.OAuth2 (2.0.0)
+  - SwiftyJSON (2.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 2.0)
   - HNKGooglePlacesAutocomplete (~> 1.1)
+  - p2.OAuth2
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
@@ -48,5 +52,7 @@ SPEC CHECKSUMS:
   HNKGooglePlacesAutocomplete: 0022f666d245c18fb8cd860e79712526d6f88267
   HNKServerFacade: 0fa3839353480b8862563a34903ad1406a38b4c9
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
+  p2.OAuth2: 15cdd26cc56d229eca1f0a82398cf38290afff51
+  SwiftyJSON: 8d6b61a70277ef2a5d710d372e06e7e2d87fb9e4
 
 COCOAPODS: 0.38.2

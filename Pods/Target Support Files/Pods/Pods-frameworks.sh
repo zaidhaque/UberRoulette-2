@@ -57,6 +57,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework 'Pods/HNKGooglePlacesAutocomplete.framework'
   install_framework 'Pods/HNKServerFacade.framework'
   install_framework 'Pods/Mantle.framework'
+  install_framework 'Pods/SwiftyJSON.framework'
+  install_framework 'Pods/p2_OAuth2.framework'
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods/AFNetworking.framework'
@@ -64,4 +66,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework 'Pods/HNKGooglePlacesAutocomplete.framework'
   install_framework 'Pods/HNKServerFacade.framework'
   install_framework 'Pods/Mantle.framework'
+  install_framework 'Pods/SwiftyJSON.framework'
+  install_framework 'Pods/p2_OAuth2.framework'
 fi
