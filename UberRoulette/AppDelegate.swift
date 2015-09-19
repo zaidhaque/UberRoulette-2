@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HNKGooglePlacesAutocomplete
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

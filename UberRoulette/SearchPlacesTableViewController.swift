@@ -8,6 +8,9 @@
 
 import UIKit
 
+import Alamofire
+import HNKGooglePlacesAutocomplete
+
 class SearchPlacesTableViewController: UITableViewController, UISearchBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     
     struct SearchControllerRestorableState {
@@ -105,6 +108,30 @@ class SearchPlacesTableViewController: UITableViewController, UISearchBarDelegat
         }
     }
 
+    @IBAction func invitePressed(sender: AnyObject) {
+        let parameters = [
+            "user_email": "sraudabaugh@gmail.com",
+            "invitee_email": "nikel092@gmail.com",
+            "places": [
+                [
+                    "city": "New York City",
+                    "name": "Videology",
+                    "latitude": 40,
+                    "longitude": -50,
+                    "message": "Arrested Development trivia!"
+                ],
+                [
+                    "city": "New York City",
+                    "name": "Brooklyn Bowl",
+                    "latitude": 40,
+                    "longitude": -50,
+                    "message": "DJ Questlove!"
+                ]
+            ]
+        ]
+        
+        Alamofire.request(.POST, "http://10.128.8.174:4567/invite", parameters: parameters, encoding: .JSON)
+    }
     /*
     // MARK: - Navigation
 

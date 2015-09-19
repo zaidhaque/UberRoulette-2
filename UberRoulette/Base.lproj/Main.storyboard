@@ -218,7 +218,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur commodo
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="w6E-4p-V0i">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="rde-hT-cVK"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="rde-hT-cVK">
+                            <connections>
+                                <action selector="invitePressed:" destination="leQ-oB-IFs" id="cfI-bQ-iEk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMC-G7-2Od" userLabel="First Responder" sceneMemberID="firstResponder"/>
