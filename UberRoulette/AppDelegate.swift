@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var uberClientKey: String!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        UITabBar.appearance().tintColor = UIColor(red: 178.0/255.0, green: 0.0, blue: 0.0, alpha: 1.0)
+
         let keysDict = NSDictionary.init(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)
         
         if let googKey = keysDict?.valueForKey("googleClientKey") as? String {
