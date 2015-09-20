@@ -8,15 +8,22 @@
 
 import UIKit
 import Alamofire
+import FLAnimatedImage
 import p2_OAuth2
 import SwiftyJSON
 
 class LoginViewController: UIViewController {
     var oauth2: OAuth2CodeGrant!
+    @IBOutlet weak var gifView: FLAnimatedImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.png")!)
+
+        let path = NSBundle.mainBundle().URLForResource("Roulette", withExtension: "gif")?.path
+        
+        gifView.animatedImage = FLAnimatedImage(animatedGIFData: NSFileManager.defaultManager().contentsAtPath(path!))
+
     }
 
     override func didReceiveMemoryWarning() {
