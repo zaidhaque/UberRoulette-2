@@ -76,6 +76,13 @@ class LoginViewController: UIViewController {
                 ]
                 
                 Alamofire.request(.POST, "http://10.128.1.19:3000/auth/uber", parameters: parameters, encoding: .JSON)
+                    .responseString { _, _, result in
+                        print("Success: \(result.isSuccess)")
+                        print("Response String: \(result.value)")
+                        if result.isSuccess {
+                            // advance to tabs screen
+                        }
+                }
             }
         }
         task.resume()

@@ -22,7 +22,7 @@ class SearchPlacesTableViewController: UITableViewController, UISearchBarDelegat
     var resultsController: ResultsTableViewController!
     var searchQuery: HNKGooglePlacesAutocompleteQuery!
     var restoredState = SearchControllerRestorableState()
-    var savedPlaces: NSMutableArray = []
+    var savedPlaces = [HNKGooglePlacesAutocompletePlace]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,9 +90,7 @@ class SearchPlacesTableViewController: UITableViewController, UISearchBarDelegat
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PlaceCell", forIndexPath: indexPath)
         
-        if let cellPlace = savedPlaces[indexPath.row] as? HNKGooglePlacesAutocompletePlace {
-            cell.textLabel?.text = cellPlace.name
-        }
+        cell.textLabel?.text = savedPlaces[indexPath.row].name
         
         return cell
     }
@@ -101,37 +99,92 @@ class SearchPlacesTableViewController: UITableViewController, UISearchBarDelegat
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         // Check to see which table view cell was selected.
         if tableView != self.tableView {
-            let selectedPlace = resultsController.searchResults[indexPath.row]
-            savedPlaces.insertObject(selectedPlace, atIndex: savedPlaces.count)
+            if let selectedPlace = resultsController.searchResults[indexPath.row] as? HNKGooglePlacesAutocompletePlace {
+                savedPlaces.append(selectedPlace)
+            }
             resultsController.dismissViewControllerAnimated(true, completion: nil)
             self.tableView.reloadData()
         }
     }
 
     @IBAction func invitePressed(sender: AnyObject) {
-        let parameters = [
-            "user_email": "sraudabaugh@gmail.com",
-            "invitee_email": "nikel092@gmail.com",
-            "places": [
-                [
-                    "city": "New York City",
-                    "name": "Videology",
-                    "latitude": 40,
-                    "longitude": -50,
-                    "message": "Arrested Development trivia!"
-                ],
-                [
-                    "city": "New York City",
-                    "name": "Brooklyn Bowl",
-                    "latitude": 40,
-                    "longitude": -50,
-                    "message": "DJ Questlove!"
-                ]
-            ]
-        ]
+        let alert = UIAlertController(title: "Send List", message: "Enter your friend's email used to sign up for Uber.", preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.keyboardType = .EmailAddress
+        })
         
-        Alamofire.request(.POST, "http://10.128.8.174:4567/invite", parameters: parameters, encoding: .JSON)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        let sendAction = UIAlertAction(title: "Send", style: UIAlertActionStyle.Default, handler: {(action: UIAlertAction!) in
+            self.send((alert.textFields?.first?.text)!)
+        })
+        
+        alert.addAction(sendAction)
+        presentViewController(alert, animated: true, completion: nil)
     }
+    
+    func send(inviteeEmail: String) {
+        var geocodedPlaces = [[String:AnyObject]]()
+        for place in savedPlaces as [HNKGooglePlacesAutocompletePlace] {
+            CLPlacemark.hnk_placemarkFromGooglePlace(place, apiKey: "AIzaSyCisvBwMQ4eabAbXRPgdE_XBTpfj28qTjg") {
+                (pmark: CLPlacemark!, str: String!, err: NSError!) in
+                if pmark != nil {
+                    let geocodedPlace: [String:AnyObject] = [
+                        "city": "New York City",
+                        "name": place.name,
+                        "latitude": Double((pmark.location?.coordinate.latitude)!),
+                        "longitude": Double((pmark.location?.coordinate.longitude)!),
+                        "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam efficitur commodo ligula, a porttitor nibh sollicitudin nec."
+                    ]
+                    geocodedPlaces.append(geocodedPlace)
+                }
+                if place == self.savedPlaces.last {
+                    UberDataGetter.getMyProfile() {
+                        (userName: String, userEmail: String) in
+                        let parameters: [String: AnyObject] = [
+                            "fullName": userName,
+                            "userEmail": userEmail,
+                            "inviteeEmail": inviteeEmail,
+                            "places": geocodedPlaces
+                        ]
+                        
+                        Alamofire.request(.POST, "http://10.128.1.19:3000/invite", parameters: parameters, encoding: .JSON)
+                    }
+                }
+            }
+        }
+    }
+    
+    /*func geocodeLocationInMapView(mapView: MKMapView, location: CGPoint, completion: (annotation: [[String:AnyObject]]) -> ()) {
+        let coordinate = mapView.convertPoint(location, toCoordinateFromView: mapView)
+        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        
+        CLGeocoder().reverseGeocodeLocation(location) {
+            placemarks, error in
+            
+            if error != nil {
+                completion(annotation: nil, error: error)
+                return
+            }
+            
+            let p = placemarks.first as CLPlacemark
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinate
+            let thoroughfare = p.thoroughfare
+            let subThoroughfare = p.subThoroughfare
+            
+            switch (thoroughfare, subThoroughfare) {
+            case (nil, nil):
+                annotation.title = "Added \(NSDate())"
+            case (_, nil):
+                annotation.title = thoroughfare
+            default:
+                annotation.title = thoroughfare + " " + subThoroughfare
+            }
+            
+            completion(annotation: annotation, error: nil)
+        }
+    }*/
+    
     /*
     // MARK: - Navigation
 
