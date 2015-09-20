@@ -16,11 +16,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zlb-Tg-hld">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zlb-Tg-hld">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Zlb-Tg-hld" secondAttribute="bottom" id="0aU-ij-rUC"/>
+                            <constraint firstItem="Zlb-Tg-hld" firstAttribute="top" secondItem="4B2-oZ-1PQ" secondAttribute="top" id="4ng-vo-3z0"/>
+                            <constraint firstAttribute="trailing" secondItem="Zlb-Tg-hld" secondAttribute="trailing" id="Hal-Wn-i5q"/>
+                            <constraint firstItem="Zlb-Tg-hld" firstAttribute="leading" secondItem="4B2-oZ-1PQ" secondAttribute="leading" id="XU0-tl-Oif"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="YWc-kX-VVG" kind="show" identifier="RideStarted" id="Lzw-CI-05k"/>
@@ -109,7 +115,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KNi-lA-7Ve"/>
+                    <navigationItem key="navigationItem" title="Request Ride" id="KNi-lA-7Ve"/>
                     <connections>
                         <outlet property="costSlider" destination="yJ0-H8-pZC" id="oYV-an-Big"/>
                         <outlet property="distanceSlider" destination="b3g-tG-qar" id="CZn-iL-j2s"/>

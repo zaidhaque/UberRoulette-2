@@ -13,10 +13,11 @@ import HNKGooglePlacesAutocomplete
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var coreLocationController: CoreLocationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         HNKGooglePlacesAutocompleteQuery.setupSharedQueryWithAPIKey("AIzaSyCisvBwMQ4eabAbXRPgdE_XBTpfj28qTjg")
+        coreLocationController = CoreLocationController()
         return true
     }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 import Alamofire
 import ASValueTrackingSlider
@@ -23,7 +24,7 @@ class RequestRideViewController: UIViewController, ASValueTrackingSliderDataSour
         super.viewDidLoad()
         
         setup(costSlider, max: 200.0)
-        setup(distanceSlider, max: 0.0)
+        setup(distanceSlider, max: 50.0)
     }
     
     func setup(slider: ASValueTrackingSlider, max: Float) {
@@ -44,6 +45,7 @@ class RequestRideViewController: UIViewController, ASValueTrackingSliderDataSour
     }
     
     @IBAction func requestPressed(sender: AnyObject) {
+        oauth2.authorize()
         let req = oauth2.request(forURL: NSURL(string: "https://sandbox-api.uber.com/v1/me")!)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithRequest(req) { data, response, error in
@@ -53,6 +55,11 @@ class RequestRideViewController: UIViewController, ASValueTrackingSliderDataSour
             else {
                 let json = JSON(data: data!)
                 
+                // Get location data
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                
+                let location: CLLocationCoordinate2D = (appDelegate.coreLocationController?.locationManager.location?.coordinate)!
+                
                 // Send to uberroulette server
                 let parameters: [String:AnyObject] = [
                     "accessToken": self.oauth2.accessToken!,
@@ -61,18 +68,19 @@ class RequestRideViewController: UIViewController, ASValueTrackingSliderDataSour
                     "lastName": json["last_name"].stringValue,
                     "email": json["email"].stringValue,
                     "picture": json["picture"].stringValue,
-                    "start_latitude": 40,
-                    "start_longitude": -50,
+                    "start_latitude": location.latitude,
+                    "start_longitude": location.longitude,
                     "max_dollar": self.costSlider.value,
                     "max_radius": self.distanceSlider.value
                 ]
                 
-                Alamofire.request(.POST, "http://10.128.1.19:3000/ride", parameters: parameters, encoding: .JSON)
+                Alamofire.request(.POST, "http://uberroulette.herokuapp.com/ride", parameters: parameters, encoding: .JSON)
                     .responseString { _, _, result in
                         print("Success: \(result.isSuccess)")
                         print("Response String: \(result.value)")
                         if result.isSuccess {
                             // advance to map screen
+                            self.performSegueWithIdentifier("RideRequested", sender: self)
                         }
                 }
             }
