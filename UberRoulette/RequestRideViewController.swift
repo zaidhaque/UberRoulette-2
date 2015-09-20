@@ -7,17 +7,23 @@
 //
 
 import UIKit
+
+import Alamofire
 import ASValueTrackingSlider
+import p2_OAuth2
+import SwiftyJSON
 
 class RequestRideViewController: UIViewController, ASValueTrackingSliderDataSource {
     @IBOutlet weak var costSlider: ASValueTrackingSlider!
     @IBOutlet weak var distanceSlider: ASValueTrackingSlider!
+    
+    var oauth2: OAuth2CodeGrant!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup(costSlider, max: 200.0)
-        setup(distanceSlider, max: 50.0)
+        setup(distanceSlider, max: 0.0)
     }
     
     func setup(slider: ASValueTrackingSlider, max: Float) {
@@ -36,5 +42,43 @@ class RequestRideViewController: UIViewController, ASValueTrackingSliderDataSour
         }
         return String.localizedStringWithFormat("%.1f miles", value)
     }
+    
+    @IBAction func requestPressed(sender: AnyObject) {
+        let req = oauth2.request(forURL: NSURL(string: "https://sandbox-api.uber.com/v1/me")!)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(req) { data, response, error in
+            if nil != error {
+                print(error)
+            }
+            else {
+                let json = JSON(data: data!)
+                
+                // Send to uberroulette server
+                let parameters: [String:AnyObject] = [
+                    "accessToken": self.oauth2.accessToken!,
+                    "uberId": json["uuid"].stringValue,
+                    "firstName": json["first_name"].stringValue,
+                    "lastName": json["last_name"].stringValue,
+                    "email": json["email"].stringValue,
+                    "picture": json["picture"].stringValue,
+                    "start_latitude": 40,
+                    "start_longitude": -50,
+                    "max_dollar": self.costSlider.value,
+                    "max_radius": self.distanceSlider.value
+                ]
+                
+                Alamofire.request(.POST, "http://10.128.1.19:3000/ride", parameters: parameters, encoding: .JSON)
+                    .responseString { _, _, result in
+                        print("Success: \(result.isSuccess)")
+                        print("Response String: \(result.value)")
+                        if result.isSuccess {
+                            // advance to map screen
+                        }
+                }
+            }
+        }
+        task.resume()
+    }
+
 
 }

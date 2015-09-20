@@ -88,6 +88,20 @@ class LoginViewController: UIViewController {
         task.resume()
         
     }
-
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "LoggedIn" {
+            if let tabBarController = segue.destinationViewController as? UITabBarController {
+                if let navController = tabBarController.viewControllers?.first as? UINavigationController {
+                    if let requestRideVC = navController.topViewController as? RequestRideViewController {
+                        requestRideVC.oauth2 = oauth2
+                    }
+                }
+            }
+        }
+    }
 }
 

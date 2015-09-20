@@ -85,7 +85,7 @@
                                 <rect key="frame" x="232" y="285" width="137" height="30"/>
                                 <state key="normal" title="Roll the dice!"/>
                                 <connections>
-                                    <segue destination="Fv9-xx-vv9" kind="show" id="4vG-1a-jL8"/>
+                                    <action selector="requestPressed:" destination="UxE-CF-W2S" eventType="touchUpInside" id="46s-UA-ZqM"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Max Cost" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6d-XB-Pf8">
@@ -113,6 +113,7 @@
                     <connections>
                         <outlet property="costSlider" destination="yJ0-H8-pZC" id="oYV-an-Big"/>
                         <outlet property="distanceSlider" destination="b3g-tG-qar" id="CZn-iL-j2s"/>
+                        <segue destination="Fv9-xx-vv9" kind="show" identifier="RideRequested" id="5vJ-SX-eqM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="POw-ge-GJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
