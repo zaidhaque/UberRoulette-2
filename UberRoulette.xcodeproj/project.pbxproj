@@ -10,6 +10,7 @@
 		227BEA461BAD727D00B9738D /* SearchPlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BEA451BAD727D00B9738D /* SearchPlacesTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		227BEA611BADD17C00B9738D /* Invite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BEA601BADD17C00B9738D /* Invite.swift */; settings = {ASSET_TAGS = (); }; };
 		227BEA631BADF56900B9738D /* UberDataGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BEA621BADF56900B9738D /* UberDataGetter.swift */; settings = {ASSET_TAGS = (); }; };
+		227BEA651BAE310600B9738D /* RequestRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227BEA641BAE310600B9738D /* RequestRideViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		22C20F2D1BAD0F77001C8DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C20F2C1BAD0F77001C8DE6 /* AppDelegate.swift */; };
 		22C20F2F1BAD0F77001C8DE6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C20F2E1BAD0F77001C8DE6 /* LoginViewController.swift */; };
 		22C20F321BAD0F77001C8DE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C20F301BAD0F77001C8DE6 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		227BEA5C1BAD742000B9738D /* UberRoulette-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UberRoulette-Bridging-Header.h"; sourceTree = "<group>"; };
 		227BEA601BADD17C00B9738D /* Invite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Invite.swift; sourceTree = "<group>"; };
 		227BEA621BADF56900B9738D /* UberDataGetter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UberDataGetter.swift; sourceTree = "<group>"; };
+		227BEA641BAE310600B9738D /* RequestRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRideViewController.swift; sourceTree = "<group>"; };
 		22C20F291BAD0F77001C8DE6 /* UberRoulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberRoulette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C20F2C1BAD0F77001C8DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C20F2E1BAD0F77001C8DE6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				22C20F5A1BAD6AD0001C8DE6 /* ResultsTableViewController.swift */,
 				227BEA451BAD727D00B9738D /* SearchPlacesTableViewController.swift */,
 				227BEA621BADF56900B9738D /* UberDataGetter.swift */,
+				227BEA641BAE310600B9738D /* RequestRideViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				22C20F2F1BAD0F77001C8DE6 /* LoginViewController.swift in Sources */,
 				227BEA611BADD17C00B9738D /* Invite.swift in Sources */,
 				227BEA461BAD727D00B9738D /* SearchPlacesTableViewController.swift in Sources */,
+				227BEA651BAE310600B9738D /* RequestRideViewController.swift in Sources */,
 				22C20F2D1BAD0F77001C8DE6 /* AppDelegate.swift in Sources */,
 				22C20F5B1BAD6AD0001C8DE6 /* ResultsTableViewController.swift in Sources */,
 			);
