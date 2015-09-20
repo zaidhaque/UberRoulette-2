@@ -19,6 +19,7 @@ class RequestRideViewController: UIViewController, ASValueTrackingSliderDataSour
     @IBOutlet weak var distanceSlider: ASValueTrackingSlider!
     
     var oauth2: OAuth2CodeGrant!
+    var responseJson: [String:AnyObject]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,17 +76,37 @@ class RequestRideViewController: UIViewController, ASValueTrackingSliderDataSour
                 ]
                 
                 Alamofire.request(.POST, "http://uberroulette.herokuapp.com/ride", parameters: parameters, encoding: .JSON)
-                    .responseString { _, _, result in
-                        print("Success: \(result.isSuccess)")
-                        print("Response String: \(result.value)")
-                        if result.isSuccess {
-                            // advance to map screen
+                    .responseJSON { request, response, result in
+                        switch result {
+                        case .Success(let json):
+//                            print("Success with JSON: \(json)")
+                            if let j = json as? [String:AnyObject] {
+                                self.responseJson = j
+                            }
                             self.performSegueWithIdentifier("RideRequested", sender: self)
+                            
+                        case .Failure(let data, let error):
+                            print("Request failed with error: \(error)")
+                            
+                            if let data = data {
+                                print("Response data: \(NSString(data: data, encoding: NSUTF8StringEncoding)!)")
+                            }
                         }
-                }
+                   }
             }
         }
         task.resume()
+    }
+
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "RideRequested" {
+            if let driverMap = segue.destinationViewController as? DriverMapViewController {
+                driverMap.res = responseJson
+            }
+        }
     }
 
 

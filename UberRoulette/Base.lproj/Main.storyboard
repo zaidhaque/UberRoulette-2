@@ -7,7 +7,7 @@
         <!--Ride Requested-->
         <scene sceneID="Kcb-56-YKd">
             <objects>
-                <viewController title="Ride Requested" id="Fv9-xx-vv9" sceneMemberID="viewController">
+                <viewController title="Ride Requested" id="Fv9-xx-vv9" customClass="DriverMapViewController" customModule="UberRoulette" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bnG-K5-9vu"/>
                         <viewControllerLayoutGuide type="bottom" id="EOP-MF-iwI"/>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zlb-Tg-hld">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zlb-Tg-hld">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
@@ -29,6 +29,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="driverMap" destination="Zlb-Tg-hld" id="D4j-Zp-HYw"/>
                         <segue destination="YWc-kX-VVG" kind="show" identifier="RideStarted" id="Lzw-CI-05k"/>
                     </connections>
                 </viewController>
