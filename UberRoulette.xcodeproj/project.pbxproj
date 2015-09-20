@@ -84,6 +84,7 @@
 		681FE4F81BAE5A6900334B7E /* background@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@3x.png"; sourceTree = "<group>"; };
 		681FE4F91BAE5A6900334B7E /* background0.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background0.5x.png; sourceTree = "<group>"; };
 		681FE4FA1BAE5A6900334B7E /* background1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.5x.png; sourceTree = "<group>"; };
+		681FE5001BAEB11300334B7E /* clanpro-book.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "clanpro-book.ttf"; sourceTree = "<group>"; };
 		9CE9038512DE932532069717 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD99EE76A05C82D81CACE4FF /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -151,6 +152,7 @@
 		22BDF21B1BAEA945003B2A95 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				681FE5001BAEB11300334B7E /* clanpro-book.ttf */,
 				22BDF21C1BAEAA39003B2A95 /* invite.png */,
 				22BDF21D1BAEAA39003B2A95 /* taxi.png */,
 				681FE4F61BAE5A6900334B7E /* background.png */,
