@@ -14,9 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var coreLocationController: CoreLocationController?
+    var googleClientKey: String!
+    var uberClientKey: String!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        HNKGooglePlacesAutocompleteQuery.setupSharedQueryWithAPIKey("AIzaSyCisvBwMQ4eabAbXRPgdE_XBTpfj28qTjg")
+        let keysDict = NSDictionary.init(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)
+        
+        if let googKey = keysDict?.valueForKey("googleClientKey") as? String {
+            googleClientKey = googKey
+        }
+        
+        HNKGooglePlacesAutocompleteQuery.setupSharedQueryWithAPIKey(googleClientKey)
         coreLocationController = CoreLocationController()
         return true
     }

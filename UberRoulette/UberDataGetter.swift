@@ -28,11 +28,17 @@ class UberDataGetter: NSObject {
     }
     
     static func startOAuth() -> OAuth2CodeGrant {
+        var uberClientKey: String!
+        let keysDict = NSDictionary.init(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)
+        if let uberKey = keysDict?.valueForKey("uberClientKey") as? String {
+            uberClientKey = uberKey
+        }
+        
         var oauth2: OAuth2CodeGrant!
         // 1. Create settings dict
         let settings = [
             "client_id": "bKI2_eSBM_pHF2Abz1bHa7VNA9uUqsUM",
-            "client_secret": "ogaOYGjBrAMGzvjVk92ip9l09jV8BfNShN-LKqSB",
+            "client_secret": uberClientKey,
             "authorize_uri": "https://login.uber.com/oauth/authorize",
             "token_uri": "https://login.uber.com/oauth/token",
             "scope": "profile request",

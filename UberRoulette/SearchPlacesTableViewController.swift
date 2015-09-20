@@ -123,9 +123,14 @@ class SearchPlacesTableViewController: UITableViewController, UISearchBarDelegat
     }
     
     func send(inviteeEmail: String) {
+        var googKey: String!
         var geocodedPlaces = [[String:AnyObject]]()
+        let keysDict = NSDictionary.init(contentsOfFile: NSBundle.mainBundle().pathForResource("Keys", ofType: "plist")!)
+        if let googleClientKey = keysDict?.valueForKey("googleClientKey") as? String {
+            googKey = googleClientKey
+        }
         for place in savedPlaces as [HNKGooglePlacesAutocompletePlace] {
-            CLPlacemark.hnk_placemarkFromGooglePlace(place, apiKey: "AIzaSyCisvBwMQ4eabAbXRPgdE_XBTpfj28qTjg") {
+            CLPlacemark.hnk_placemarkFromGooglePlace(place, apiKey: googKey) {
                 (pmark: CLPlacemark!, str: String!, err: NSError!) in
                 if pmark != nil {
                     let geocodedPlace: [String:AnyObject] = [

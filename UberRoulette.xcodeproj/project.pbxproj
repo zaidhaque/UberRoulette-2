@@ -17,6 +17,7 @@
 		22BDF2161BAEA64C003B2A95 /* FinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BDF2151BAEA64C003B2A95 /* FinalViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		22BDF21E1BAEAA39003B2A95 /* invite.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BDF21C1BAEAA39003B2A95 /* invite.png */; settings = {ASSET_TAGS = (); }; };
 		22BDF21F1BAEAA39003B2A95 /* taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 22BDF21D1BAEAA39003B2A95 /* taxi.png */; settings = {ASSET_TAGS = (); }; };
+		22BDF2211BAEAD8C003B2A95 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 22BDF2201BAEAD8C003B2A95 /* Keys.plist */; settings = {ASSET_TAGS = (); }; };
 		22C20F2D1BAD0F77001C8DE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C20F2C1BAD0F77001C8DE6 /* AppDelegate.swift */; };
 		22C20F2F1BAD0F77001C8DE6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C20F2E1BAD0F77001C8DE6 /* LoginViewController.swift */; };
 		22C20F321BAD0F77001C8DE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22C20F301BAD0F77001C8DE6 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		22BDF2151BAEA64C003B2A95 /* FinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalViewController.swift; sourceTree = "<group>"; };
 		22BDF21C1BAEAA39003B2A95 /* invite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = invite.png; sourceTree = "<group>"; };
 		22BDF21D1BAEAA39003B2A95 /* taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taxi.png; sourceTree = "<group>"; };
+		22BDF2201BAEAD8C003B2A95 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		22C20F291BAD0F77001C8DE6 /* UberRoulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberRoulette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22C20F2C1BAD0F77001C8DE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22C20F2E1BAD0F77001C8DE6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 				22C20F331BAD0F77001C8DE6 /* Assets.xcassets */,
 				22C20F351BAD0F77001C8DE6 /* LaunchScreen.storyboard */,
 				22C20F381BAD0F77001C8DE6 /* Info.plist */,
+				22BDF2201BAEAD8C003B2A95 /* Keys.plist */,
 				227BEA5C1BAD742000B9738D /* UberRoulette-Bridging-Header.h */,
 			);
 			path = UberRoulette;
@@ -347,6 +350,7 @@
 			files = (
 				22C20F371BAD0F77001C8DE6 /* LaunchScreen.storyboard in Resources */,
 				22BDF21F1BAEAA39003B2A95 /* taxi.png in Resources */,
+				22BDF2211BAEAD8C003B2A95 /* Keys.plist in Resources */,
 				681FE4FF1BAE5A6900334B7E /* background1.5x.png in Resources */,
 				681FE4FD1BAE5A6900334B7E /* background@3x.png in Resources */,
 				681FE4FB1BAE5A6900334B7E /* background.png in Resources */,
