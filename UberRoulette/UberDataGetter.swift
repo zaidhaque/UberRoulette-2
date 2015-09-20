@@ -35,7 +35,7 @@ class UberDataGetter: NSObject {
             "client_secret": "ogaOYGjBrAMGzvjVk92ip9l09jV8BfNShN-LKqSB",
             "authorize_uri": "https://login.uber.com/oauth/authorize",
             "token_uri": "https://login.uber.com/oauth/token",
-            "scope": "profile",
+            "scope": "profile request",
             "redirect_uris": ["http://localhost:3000/auth/uber/callback"],   // don't forget to register this scheme
             "keychain": true,
             "title": "UberRoulette"  // optional title to show in views

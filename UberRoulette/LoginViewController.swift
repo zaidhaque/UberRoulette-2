@@ -40,6 +40,7 @@ class LoginViewController: UIViewController {
         oauth2 = OAuth2CodeGrant(settings: settings)
         oauth2.onAuthorize = { parameters in
             print("Did authorize with parameters: \(parameters)")
+            self.getProfile()
         }
         oauth2.onFailure = { error in        // `error` is nil on cancel
             if nil != error {
@@ -51,8 +52,6 @@ class LoginViewController: UIViewController {
         oauth2.authConfig.authorizeEmbedded = true
         oauth2.authConfig.authorizeContext = self
         oauth2.authorize()
-        
-        getProfile()
     }
     
     func getProfile() {
@@ -81,6 +80,7 @@ class LoginViewController: UIViewController {
                         print("Response String: \(result.value)")
                         if result.isSuccess {
                             // advance to tabs screen
+                            self.performSegueWithIdentifier("LoggedIn", sender: self)
                         }
                 }
             }
