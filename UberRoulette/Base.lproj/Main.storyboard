@@ -178,6 +178,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                     </tabBar>
                     <connections>
                         <segue destination="YT0-gp-B0T" kind="relationship" relationship="viewControllers" id="77x-tT-cSw"/>
@@ -192,7 +193,9 @@
         <scene sceneID="Y7p-Vn-yyZ">
             <objects>
                 <navigationController title="Ride" automaticallyAdjustsScrollViewInsets="NO" id="YT0-gp-B0T" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ride" image="taxi.png" selectedImage="taxi.png" id="dI0-xA-XTv"/>
+                    <tabBarItem key="tabBarItem" title="Ride" image="Ride.png" selectedImage="Ride_selected.png" id="dI0-xA-XTv">
+                        <inset key="imageInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dEy-4x-4sC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -274,7 +277,9 @@
         <scene sceneID="5DC-K8-Ol9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="53c-Xz-QDP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Invite" image="invite.png" selectedImage="invite.png" id="HdG-nX-IN4"/>
+                    <tabBarItem key="tabBarItem" title="Invite" image="Invite1.png" selectedImage="Invite_selected.png" id="HdG-nX-IN4">
+                        <inset key="imageInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="N0l-Mv-hey">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -351,8 +356,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="invite.png" width="44" height="44"/>
-        <image name="taxi.png" width="44" height="44"/>
+        <image name="Invite1.png" width="51" height="51"/>
+        <image name="Invite_selected.png" width="51" height="51"/>
+        <image name="Ride.png" width="51" height="51"/>
+        <image name="Ride_selected.png" width="51" height="51"/>
     </resources>
     <color key="tintColor" red="0.69803921568627447" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
