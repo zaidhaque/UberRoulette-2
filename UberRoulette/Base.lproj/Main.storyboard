@@ -56,6 +56,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KEV-gO-Dbj" customClass="FLAnimatedImageView">
+                                <rect key="frame" x="240" y="161" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="14q-fl-eeQ"/>
+                                </constraints>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UberROULETTE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5K-RC-FkI">
                                 <rect key="frame" x="239" y="289" width="123" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -79,13 +85,17 @@
                         <constraints>
                             <constraint firstItem="ZKZ-CY-Ca9" firstAttribute="top" secondItem="S5K-RC-FkI" secondAttribute="bottom" constant="30" id="5U2-Wy-hu7"/>
                             <constraint firstItem="S5K-RC-FkI" firstAttribute="centerX" secondItem="ZKZ-CY-Ca9" secondAttribute="centerX" id="8TM-p5-ECx"/>
+                            <constraint firstItem="S5K-RC-FkI" firstAttribute="top" secondItem="KEV-gO-Dbj" secondAttribute="bottom" constant="8" symbolic="YES" id="CSL-1I-rbr"/>
+                            <constraint firstItem="KEV-gO-Dbj" firstAttribute="centerX" secondItem="S5K-RC-FkI" secondAttribute="centerX" id="GuN-C8-NVz"/>
                             <constraint firstItem="S5K-RC-FkI" firstAttribute="centerX" secondItem="jXU-U5-cun" secondAttribute="centerX" id="Rdh-rV-SZ4"/>
                             <constraint firstItem="S5K-RC-FkI" firstAttribute="centerY" secondItem="jXU-U5-cun" secondAttribute="centerY" id="Wqj-Jb-Bnr"/>
+                            <constraint firstItem="KEV-gO-Dbj" firstAttribute="top" secondItem="5Yr-Cq-WFN" secondAttribute="bottom" constant="141" id="cmb-3e-sdk"/>
                             <constraint firstItem="S5K-RC-FkI" firstAttribute="top" secondItem="5Yr-Cq-WFN" secondAttribute="bottom" constant="269" id="jBM-IK-DXS"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3WF-IS-ItT"/>
                     <connections>
+                        <outlet property="gifView" destination="KEV-gO-Dbj" id="mVL-Oh-uoR"/>
                         <segue destination="VtT-1m-Nvo" kind="show" identifier="LoggedIn" id="1J0-2J-6ci"/>
                     </connections>
                 </viewController>

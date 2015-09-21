@@ -22,6 +22,7 @@ PODS:
     - AFNetworking/NSURLSession
   - Alamofire (2.0.1)
   - ASValueTrackingSlider (0.11.2)
+  - FLAnimatedImage (1.0.8)
   - HNKGooglePlacesAutocomplete (1.1.0):
     - HNKGooglePlacesAutocomplete/Models (= 1.1.0)
     - HNKServerFacade (~> 0.3)
@@ -44,6 +45,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 2.0)
   - ASValueTrackingSlider
+  - FLAnimatedImage (~> 1.0)
   - HNKGooglePlacesAutocomplete (~> 1.1)
   - p2.OAuth2
   - SwiftyJSON
@@ -52,6 +54,7 @@ SPEC CHECKSUMS:
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   Alamofire: 1d8e208d616fbbfd2391b15eae766d07c96cdc49
   ASValueTrackingSlider: 45c9f78252da60de01d8f2afe869aaf90dd978d9
+  FLAnimatedImage: f9422f796135aff80d8c00b2afc48015bb746e24
   HNKGooglePlacesAutocomplete: 0022f666d245c18fb8cd860e79712526d6f88267
   HNKServerFacade: 0fa3839353480b8862563a34903ad1406a38b4c9
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
